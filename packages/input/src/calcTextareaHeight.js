@@ -80,7 +80,11 @@ export default function calcTextareaHeight(
   }
 
   hiddenTextarea.value = '';
-  let singleRowHeight = hiddenTextarea.scrollHeight - paddingSize;
+
+  let singleRowHeight;
+  if (minRows !== null || maxRows !== null) {
+    singleRowHeight = hiddenTextarea.scrollHeight - paddingSize;
+  }
 
   if (minRows !== null) {
     let minHeight = singleRowHeight * minRows;
